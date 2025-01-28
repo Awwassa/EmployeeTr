@@ -1,0 +1,80 @@
+﻿<Window x:Class="EmployeeTr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeTr"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="1">
+            <!-- Tab: Groups -->
+            <TabItem Header="Groups">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Groups" FontWeight="Bold" Margin="0,0,0,10" />
+                        <ListBox x:Name="GroupsListBox" DisplayMemberPath="GroupName" Height="200" />
+                        <Button Name="delGroup" Content="Delete Group" Click="delGroup_Click"  Margin="0,10,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <TextBlock Text="Add Group" FontWeight="Bold" Margin="0,0,0,10" />
+                        <TextBox x:Name="GroupNameTextBox" Text="Group Name" Margin="0,0,0,10" />
+                        <Button Name="addGroup" Content="Add Group" Click="addGroup_Click" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab: Courses -->
+            <TabItem Header="Courses">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Courses" FontWeight="Bold" Margin="0,0,0,10" />
+                        <ListBox x:Name="CoursesListBox" DisplayMemberPath="CourseName" Height="200" />
+                        <Button Name="delCourse" Content="Delete Course" Click="delCourse_Click" Margin="0,10,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <TextBlock Text="Add Course" FontWeight="Bold" Margin="0,0,0,10" />
+                        <TextBox x:Name="CourseNameTextBox" Text="Course Name" Margin="0,0,0,10" />
+                        <TextBox x:Name="DurationTextBox" Text="Duration (hours)" Margin="0,0,0,10" />
+                        <Button Name="addCourse" Content="Add Course" Click="addCourse_Click" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab: Instructors -->
+            <TabItem Header="Instructors">
+                <Grid Margin="10">
+                    <TextBlock Text="Instructors" FontWeight="Bold" Margin="0,0,0,10" />
+                    <ListBox x:Name="InstructorsListBox" DisplayMemberPath="FullName" Height="200" />
+                </Grid>
+            </TabItem>
+
+            <!-- Tab: Certificates -->
+            <TabItem Header="Certificates">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="GroupsListBoxForCertificates" DisplayMemberPath="GroupName" />
+                    <Button Name="issueCert" Grid.Row="1" Content="Issue Certificates" Click="issueCert_Click"  Margin="0,10,0,0" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
